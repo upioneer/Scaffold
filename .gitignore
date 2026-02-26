@@ -1,0 +1,10 @@
+# Ignore all Markdown files by default
+*.md
+
+# Allow specific mandatory files
+!readme.md
+!license.md
+
+# OS generated files
+.DS_Store
+Thumbs.db
