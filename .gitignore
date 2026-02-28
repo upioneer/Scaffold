@@ -4,6 +4,8 @@
 # Allow specific mandatory files
 !readme.md
 !license.md
+!brand.md
+!.agent/**/*.md
 
 # OS generated files
 .DS_Store
