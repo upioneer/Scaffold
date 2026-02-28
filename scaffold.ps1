@@ -9,7 +9,6 @@ scaffold.ps1
 # Allow specific mandatory files
 !readme.md
 !license.md
-!.agent/**/*.md
 
 # OS generated files
 .DS_Store
