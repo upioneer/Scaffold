@@ -162,6 +162,8 @@ SOFTWARE.
   * `github.md` - GitHub project configuration and agent Git instructions
   * `plan.md` - Phased project roadmap and goals
   * `skills.md` - Specialized logic and AI skills instructions
+    * `Firebase Deployment Routine`
+    * `GitHub Push Routine`
   * `testing.md` - Testing philosophy and test cases
   * `todo.md` - Project backlog and priorities
   * Standard `readme.md` and `license.md`
@@ -179,29 +181,23 @@ SOFTWARE.
 * Logic: [Step-by-step logic for the AI to follow]
 
 ## SKILL: Firebase Deployment Routine
-* Purpose: Ensure Firebase deployment is properly configured and documented before pushing, and updated afterwards
+* Purpose: Ensure Firebase deployment is properly configured and documented before pushing, and updated afterwards.
 * Logic: 
-  1. Check if `firebase.md` contains the necessary configuration info
-     * E.g., project ID, active site, region
-  2. If not, prompt the user for the lacking details
-  3. Execute the push to Firebase using the verified info
-  4. Test to ensure the deployment was successful
-  5. Update `firebase.md` with the tested and validated configuration details
+  1. Check if `firebase.md` contains the necessary configuration info.
+  2. If not, prompt the user for the lacking details.
+  3. Execute the push to Firebase using the verified info.
+  4. Test to ensure the deployment was successful.
+  5. Update `firebase.md` with the tested and validated configuration details.
 
 ## SKILL: GitHub Push Routine
-* Purpose: Ensure GitHub push is properly configured and handles mismatches (e.g., rebasing, merging) between local directory and remote
+* Purpose: Ensure GitHub push is properly configured and handles mismatches (e.g., rebasing, merging) between local directory and remote.
 * Logic: 
-  1. Check if `github.md` contains the necessary configuration info
-     * E.g., repository URL, default branch
-  2. If not, prompt the user for the lacking details
-  3. Fetch the latest remote changes and check the status of the local working directory against the remote branch
-  4. If there's a mismatch (diverged, local behind, conflicts), prompt the user in plain English with specific options:
-     * **Merge**
-     * **Rebase**
-     * **Overwrite Web**
-     * **Overwrite Local**
-  5. Execute the Git command based on the user's explicit instructions
-  6. Push to GitHub and update `github.md` with new configuration details if applicable
+  1. Check if `github.md` contains the necessary configuration info.
+  2. If not, prompt the user for the lacking details.
+  3. Fetch the latest remote changes and check the status of the local working directory against the remote branch.
+  4. If there's a mismatch (diverged, local behind, conflicts), prompt the user in plain English with specific options (Merge, Rebase, Overwrite Web, Overwrite Local).
+  5. Execute the Git command based on the user's explicit instructions.
+  6. Push to GitHub and update `github.md` with new configuration details if applicable.
 "@
     ".agent/skills/firebase_deployment/SKILL.md" = @"
 ---
