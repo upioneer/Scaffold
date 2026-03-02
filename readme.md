@@ -14,6 +14,10 @@ SCAFFOLD is a lightweight PowerShell script (`scaffold.ps1`) designed to quickly
   * `skills.md` - Specialized logic and AI skills instructions
     * `Firebase Deployment Routine`
     * `GitHub Push Routine`
+    * `Supabase Management Routine`
+    * `Resend Email Services`
+    * `Telegram Notifications`
+    * `Node Development`
   * `testing.md` - Testing philosophy and test cases
   * `todo.md` - Project backlog and priorities
   * Standard `readme.md` and `license.md`

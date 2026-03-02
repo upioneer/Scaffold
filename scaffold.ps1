@@ -2,7 +2,7 @@
 # This script generates standard markdown templates for a new project.
 
 $templates = @{
-    ".gitignore"                                 = @"
+   ".gitignore"                                 = @"
 github.md
 scaffold.ps1
 
@@ -14,7 +14,7 @@ scaffold.ps1
 .DS_Store
 Thumbs.db
 "@
-    "agent.md"                                   = @"
+   "agent.md"                                   = @"
 # AGENT INSTRUCTIONS
 Always use the existing project structure and files.
 Do not create new files unless explicitly asked to do so.
@@ -29,7 +29,7 @@ Do not create new files unless explicitly asked to do so.
 ## COMMANDS & SHORTCUTS
 * /example - [What this command does]
 "@
-    "brand.md"                                   = @"
+   "brand.md"                                   = @"
 # BRAND GUIDELINES
 
 ## LOGO & IDENTITY
@@ -71,7 +71,7 @@ Do not create new files unless explicitly asked to do so.
 * **Brand Voice:** [e.g., Professional and authoritative, friendly and casual, technical and precise]
 * **Key Terminology:** [Specific words to use or avoid]
 "@
-    "design.md"                                  = @"
+   "design.md"                                  = @"
 # DESIGN SPECIFICATION
 
 ## ARCHITECTURE OVERVIEW
@@ -85,7 +85,7 @@ Do not create new files unless explicitly asked to do so.
 ## DATA INTEGRITY
 [Description of how data is managed, stored, and recovered]
 "@
-    "github.md"                                  = @"
+   "github.md"                                  = @"
 ---
 description: GitHub Project Setup Template
 ---
@@ -113,7 +113,7 @@ When an agent sees this file:
 8. Add remote origin.
 9. Push to main.
 "@
-    "license.md"                                 = @"
+   "license.md"                                 = @"
 # MIT License
 
 Copyright (c) 2026 upioneer
@@ -136,7 +136,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 "@
-    "plan.md"                                    = @"
+   "plan.md"                                    = @"
 # PROJECT ROADMAP
 
 ## PHASE 1: THE FOUNDATION
@@ -147,7 +147,7 @@ SOFTWARE.
 * [ ] Goal 1
 * [ ] Goal 2
 "@
-    "readme.md"                                  = @"
+   "readme.md"                                  = @"
 # PROJECT TITLE
 
 ## OVERVIEW
@@ -164,6 +164,10 @@ SOFTWARE.
   * `skills.md` - Specialized logic and AI skills instructions
     * `Firebase Deployment Routine`
     * `GitHub Push Routine`
+    * `Supabase Management Routine`
+    * `Resend Email Services`
+    * `Telegram Notifications`
+    * `Node Development`
   * `testing.md` - Testing philosophy and test cases
   * `todo.md` - Project backlog and priorities
   * Standard `readme.md` and `license.md`
@@ -173,7 +177,7 @@ SOFTWARE.
 ## GETTING STARTED
 [Installation or run instructions]
 "@
-    "skills.md"                                  = @"
+   "skills.md"                                  = @"
 # SPECIALIZED AI SKILLS
 
 ## SKILL: [Skill Name]
@@ -198,8 +202,40 @@ SOFTWARE.
   4. If there's a mismatch (diverged, local behind, conflicts), prompt the user in plain English with specific options (Merge, Rebase, Overwrite Web, Overwrite Local).
   5. Execute the Git command based on the user's explicit instructions.
   6. Push to GitHub and update `github.md` with new configuration details if applicable.
+
+## SKILL: Supabase Management Routine
+* Purpose: Keep database schemas properly synchronized via migrations and maintain strictly typed front-ends
+* Logic:
+  1. Check `supabase.md` for project configuration (e.g., project ID, database URL)
+  2. When prompted to migrate: run `npx supabase db push` and verify success
+  3. When prompted to sync types: run `npx supabase gen types typescript --project-id "[ID]" > types/supabase.ts`
+  4. Verify the type generation was successful and update any relevant documentation
+
+## SKILL: Resend Email Services
+* Purpose: Standardize initialization of Email API services and transactional email wrappers
+* Logic:
+  1. Check for valid Resend API keys or `resend.md` configuration in the environment
+  2. Inject key into local `.env` file safely if instructed
+  3. Scaffold a reusable `sendEmail` utility function wrapping the Resend SDK
+  4. Use template parameters (To, From, Subject, HTML body) to verify email functionality
+
+## SKILL: Telegram Notifications
+* Purpose: Dispatch critical system alerts or CI/CD deployment statuses to a Telegram chat
+* Logic:
+  1. Verify the presence of `TELEGRAM_BOT_TOKEN` and `DEFAULT_CHAT_ID`
+  2. Format a concise markdown string detailing the deployment success or error state
+  3. Execute an HTTP POST request to the Telegram Bot API to deliver the alert
+  4. Log the notification timestamp locally if requested
+
+## SKILL: Node Development
+* Purpose: Manage Node.js development environments, including starting/stopping dev servers, building, testing, and linting.
+* Logic:
+  1. Determine the package manager in use (npm, yarn, pnpm) via lockfiles.
+  2. For starting the server, run `npm run dev` in the background and monitor for successful start.
+  3. For stopping the server, terminate the associated background process.
+  4. Build (`npm run build`), test (`npm test`), or lint (`npm run lint`) when requested and report output.
 "@
-    ".agent/skills/firebase_deployment/SKILL.md" = @"
+   ".agent/skills/firebase_deployment/SKILL.md" = @"
 ---
 name: firebase_deployment
 description: Specialized skill for pushing to Firebase, verifying firebase.md configuration, and updating it upon success.
@@ -224,7 +260,7 @@ When the user asks to push or deploy to Firebase, follow these instructions exac
 5. **Update `firebase.md`**
    After a successful deployment, update `firebase.md` (or create it if it doesn't exist) with any new or confirmed deployment information, URLs, or configurations so it is available for future automated deployments.
 "@
-    ".agent/skills/github_push/SKILL.md"         = @"
+   ".agent/skills/github_push/SKILL.md"         = @"
 ---
 name: github_push
 description: Specialized skill for pushing to GitHub, verifying configuration, and handling edge cases like rebasing, diverging, or conflicts.
@@ -260,7 +296,7 @@ When the user asks to push, deploy, or sync with GitHub, follow these instructio
 6. **Update `github.md`**
    After a successful push or resolution, update `github.md` with any new configuration details or successful state information if needed.
 "@
-    ".agent/workflows/firebase_push.md"          = @"
+   ".agent/workflows/firebase_push.md"          = @"
 ---
 description: How to safely deploy to Firebase and document configuration
 ---
@@ -284,7 +320,7 @@ This workflow ensures safe, documented deployments to Firebase by validating `fi
 5. **Update Documentation**
    Upon a successful deployment, automatically append or update `firebase.md` with the newly verified project configuration details so future deployments are fully automated.
 "@
-    ".agent/workflows/github_push.md"            = @"
+   ".agent/workflows/github_push.md"            = @"
 ---
 description: How to safely push to GitHub, handling mismatches and configuration
 ---
@@ -317,7 +353,115 @@ This workflow ensures safe pushes to GitHub by validating repository configurati
 6. **Update Documentation**
    Upon a successful push, update `github.md` if any new configuration or remote details were provided.
 "@
-    "testing.md"                                 = @"
+   ".agent/skills/supabase_management/SKILL.md" = @"
+---
+name: supabase_management
+description: Specialized skill for executing Supabase migrations and generating strict TypeScript types from the database schema.
+---
+
+# Supabase Management Skill
+
+When the user asks to manage the Supabase database, migrate schemas, or sync types, follow these instructions exactly:
+
+1. **Check for `supabase.md`**
+   Check for configuration details like the Supabase Project ID. 
+
+2. **Database Migrations**
+   If the user asks to push changes to the remote database:
+   - Run `npx supabase db push`
+   - Verify the command executed successfully without conflicts.
+
+3. **Type Generation**
+   If the user asks to sync or generate types:
+   - Run `npx supabase gen types typescript --project-id "[PROJECT_ID]" > types/supabase.ts` (replacing the ID with the actual project ID).
+   - Verify the file was created/updated successfully.
+"@
+   ".agent/workflows/supabase_management.md"    = @"
+---
+description: How to safely migrate Supabase databases and synchronize frontend types
+---
+
+# Supabase Management Workflow
+
+This workflow ensures database changes are safely pushed to Supabase and that frontend TypeScript definitions are immediately updated to reflect the new schema.
+
+1. **Push Migrations**
+   Run `npx supabase db push` to push any pending local migrations to the remote database. Provide output to the user.
+2. **Generate Types**
+   Run `npx supabase gen types typescript --project-id "[PROJECT_ID]" > types/supabase.ts`.
+3. **Verify Sync**
+   Ensure the `types/supabase.ts` file exists and contains the updated schema definitions.
+"@
+   ".agent/skills/resend_email/SKILL.md"        = @"
+---
+name: resend_email
+description: Specialized skill for initializing Resend email services and scaffolding a reusable email utility function.
+---
+
+# Resend Email Skill
+
+When the user asks to set up emails, notifications, or Resend, follow these instructions exactly:
+
+1. **Check for Resend Configuration**
+   Check for `resend.md` or look for a `RESEND_API_KEY` in the local `.env` files.
+
+2. **Prompt if Missing**
+   If missing, prompt the user for their Resend API key and the verified sending domain. Insert these safely into `.env.local` or `.env`. 
+
+3. **Scaffold Utility**
+   Create a generic `sendEmail.ts` (or `.js`) utility function that wraps the Resend Node.js SDK. It should accept `to`, `subject`, `html`, and optionally `from` parameters.
+
+4. **Verify Implementation**
+   Ensure the utility is cleanly separated from the UI logic and handles API errors via try/catch blocks gracefully. 
+"@
+   ".agent/skills/telegram_notify/SKILL.md"     = @"
+---
+name: telegram_notify
+description: Specialized skill for dispatching alerts, deployment statuses, or critical errors to a designated Telegram chat via the Bot API.
+---
+
+# Telegram Notifications Skill
+
+When the user asks to set up Telegram notifications, deploy hooks, or chat alerts, follow these instructions exactly:
+
+1. **Verify Credentials**
+   Ensure the project contains a `TELEGRAM_BOT_TOKEN` and a `DEFAULT_CHAT_ID` in the local environment variables. Prompt the user for them if missing.
+
+2. **Format Message**
+   Construct a clean markdown-formatted string for the alert (e.g., *Deployment Successful*, or **Critical Error on Edge Function**).
+
+3. **Dispatch HTTP Post**
+   Make a standard HTTP POST request to `https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/sendMessage` with the payload `{ "chat_id": "<DEFAULT_CHAT_ID>", "text": "<Message>", "parse_mode": "Markdown" }`. 
+"@
+   ".agent/skills/node_dev/SKILL.md"            = @"
+---
+name: node_dev
+description: Specialized skill for managing Node.js development environments, including starting/stopping dev servers, building, testing, and linting.
+---
+
+# Node Development Skill
+
+When the user asks to start, stop, or manage a Node application, follow these instructions exactly:
+
+1. **Detect Package Manager**
+   Check for `package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml` to determine the correct package manager (`npm`, `yarn`, or `pnpm`).
+
+2. **Starting the Dev Server**
+   To start the app (e.g., `npm run dev` or `npm start`):
+   - Run the command in the background.
+   - Wait to ensure the server starts successfully and note the local URL/port.
+   - If the port is blocked, terminate the blocking process or use a different port.
+
+3. **Stopping the Dev Server**
+   To stop the app:
+   - Terminate the background command running the dev server.
+
+4. **Other Dev Commands**
+   - **Install**: Run `npm install` to add dependencies.
+   - **Build**: Run `npm run build` to compile the project and verify success.
+   - **Test & Lint**: Run `npm run test` or `npm run lint` to enforce quality. Report any errors to the user.
+"@
+   "testing.md"                                 = @"
 # TESTING SPECIFICATION
 
 ## CORE PHILOSOPHY
@@ -328,7 +472,7 @@ This workflow ensures safe pushes to GitHub by validating repository configurati
 * Condition: [Trigger condition]
 * Expected: [Expected outcome]
 "@
-    "todo.md"                                    = @"
+   "todo.md"                                    = @"
 # PROJECT BACKLOG (TODO)
 
 ## PRIORITY: ARCHITECTURE
@@ -343,17 +487,17 @@ This workflow ensures safe pushes to GitHub by validating repository configurati
 Write-Host "Scaffolding baseline artifacts..." -ForegroundColor Magenta
 
 foreach ($file in $templates.Keys) {
-    if (-not (Test-Path $file)) {
-        $parent = Split-Path $file
-        if ($parent -and -not (Test-Path $parent)) {
-            New-Item -ItemType Directory -Force -Path $parent | Out-Null
-        }
-        Set-Content -Path $file -Value $templates[$file]
-        Write-Host "Created: $file" -ForegroundColor Green
-    }
-    else {
-        Write-Host "Skipped (Already exists): $file" -ForegroundColor Yellow
-    }
+   if (-not (Test-Path $file)) {
+      $parent = Split-Path $file
+      if ($parent -and -not (Test-Path $parent)) {
+         New-Item -ItemType Directory -Force -Path $parent | Out-Null
+      }
+      Set-Content -Path $file -Value $templates[$file]
+      Write-Host "Created: $file" -ForegroundColor Green
+   }
+   else {
+      Write-Host "Skipped (Already exists): $file" -ForegroundColor Yellow
+   }
 }
 
 Write-Host "Scaffolding complete!" -ForegroundColor Magenta
