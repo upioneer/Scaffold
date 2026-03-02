@@ -1,4 +1,4 @@
-# SCAFFOLD2.ps1 - Project Template Generator
+# Project Template Generator
 # This script generates standard markdown templates for a new project.
 
 $templates = @{
