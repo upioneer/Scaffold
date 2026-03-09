@@ -3,8 +3,7 @@
 
 $templates = @{
    ".gitignore"                                 = @"
-github.md
-scaffold.ps1
+*.md
 
 # Allow specific mandatory files
 !readme.md
@@ -13,11 +12,25 @@ scaffold.ps1
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Project generated/maintained files
+/local project files/
+/TEMPLATE/
+/template/
 "@
    "agent.md"                                   = @"
 # AGENT INSTRUCTIONS
-Always use the existing project structure and files.
-Do not create new files unless explicitly asked to do so.
+Always use the existing project structure and files. Do not create new files unless explicitly asked to do so.
+
+## MONOREPO STRUCTURE
+* An `\apps` folder is available to maintain separate apps as a monorepo project. When working on features or adding code, please use this folder and its subfolders if the user chooses to utilize it.
+
+## PROJECT SCAFFOLDING
+* Template artifacts should be used to build/rebuild `\SCAFFOLD.ps1` on user demand. Do not edit `\SCAFFOLD.ps1` directly for template changes; instead, modify the artifacts and compile them.
+
+## TESTING & DOCUMENTATION
+* Every agentic testing (where functional testing and screenshots are taken) MUST be captured in `\apps\walkthrough\[AppVersion]\readme.md`.
+* This ensures the user has full historicals of what was performed, the outcome, and a changelog from the previous version. The agent should use these files for memory and context.
 
 ## PERSONA
 [Describe the expected AI agent persona and role here]
@@ -155,6 +168,9 @@ SOFTWARE.
 
 ## FEATURES
 * **Rapid Scaffolding:** Instantly generates essential overarching Markdown files for project management
+* **Monorepo Structure:** Creates organized directories for managing complex projects:
+  * `\apps` - Contains individual applications or services for a monorepo setup. Also stores testing workflows in `\apps\walkthrough\[AppVersion]\readme.md`
+  * `\local project files` - For storing user-specific unversioned files locally
 * **Comprehensive Templates:** Generates purpose-built files including:
   * `agent.md` - Instructions and personas for AI agents
   * `brand.md` - Generic template for managing project branding, colors, typography, logos
@@ -259,6 +275,11 @@ When the user asks to push or deploy to Firebase, follow these instructions exac
 
 5. **Update `firebase.md`**
    After a successful deployment, update `firebase.md` (or create it if it doesn't exist) with any new or confirmed deployment information, URLs, or configurations so it is available for future automated deployments.
+
+6. **Generate Versioned Walkthrough**
+   Ensure we capture significant system changes on each push to Firebase. You MUST generate a `walkthrough.md` file that summarizes the new features, fixes, and changes included in this deployment.
+   - Save this walkthrough in `apps/walkthrough/<version>/walkthrough.md`.
+   - Use a Semantic Versioning strategy (e.g., `v1.0`, `v1.1`, `v2.0`) for the folder names. Evaluate the scope of the deployment to determine the appropriate version increment.
 "@
    ".agent/skills/github_push/SKILL.md"         = @"
 ---
