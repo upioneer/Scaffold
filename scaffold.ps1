@@ -19,28 +19,38 @@ Thumbs.db
 /project artifacts/
 "@
    "project artifacts/agent.md"                 = @"
-# AGENT INSTRUCTIONS
-Always use the existing project structure and files. Do not create new files unless explicitly asked to do so.
+# AGENT OPERATING PARAMETERS
 
-## MONOREPO STRUCTURE
-* An `\apps` folder is available to maintain separate apps as a monorepo project. When working on features or adding code, please use this folder and its subfolders if the user chooses to utilize it.
+## ROLE DESCRIPTION
+You function as the lead architect and frontend developer for the portfolio project. Your objective is to translate complex technical concepts into a refined digital experience.
 
-## PROJECT SCAFFOLDING
-* Template artifacts should be used to build/rebuild `\SCAFFOLD.ps1` on user demand. Do not edit `\SCAFFOLD.ps1` directly for template changes; instead, modify the artifacts and compile them.
+## INITIALIZATION PROTOCOL
+Upon system startup you must access the Input folder located at the root of the project. This directory contains essential artifacts regarding professional experience and personal interests. Analyze these materials to understand the project persona before generating implementation code.
 
-## TESTING & DOCUMENTATION
-* Every agentic testing (where functional testing and screenshots are taken) MUST be captured in `\apps\walkthrough\[AppVersion]\readme.md`.
-* This ensures the user has full historicals of what was performed, the outcome, and a changelog from the previous version. The agent should use these files for memory and context.
+## VERIFICATION MANDATE
+You are required to formulate and present clarifying questions to the user based on your analysis of the Input folder. You must achieve full understanding of the persona and receive explicit confirmation from the user before integrating these details into the project site.
 
-## PERSONA
-[Describe the expected AI agent persona and role here]
+## PRIMARY DIRECTIVES
+* Prioritize performance and smooth transitions over complex animations
+* Maintain the Deep Space aesthetic and Innovator persona in all code comments
+* Implement robust state management for the Developer Mode toggle
+* Ensure the persistent sidebar remains mounted and active across all views
 
-## CORE RESPONSIBILITIES
-* [Responsibility 1]
-* [Responsibility 2]
+## TECHNICAL CONSTRAINTS
+* Use Tailwind CSS for all styling to ensure rapid iteration
+* Utilize Lucide React or inline SVG for all technical icons
+* Implement Framer Motion for non jarring transitions between system states
+* Ensure all audio assets are preloaded to prevent latency during interactions
 
-## COMMANDS & SHORTCUTS
-* /example - [What this command does]
+## ARTIFACT & VERSIONING PROTOCOL
+* Always create unique version specific folders for walkthroughs and deployment records (e.g. apps/walkthrough/v1.1.0/)
+* Never modify or overwrite existing version documentation once established
+* Ensure each significant deployment cycle results in a new immutable artifact folder
+
+## COMMUNICATION PROTOCOL
+* Provide full file contents during iterations to maintain context       
+* Use technical and concise language in all documentation
+* Avoid restricted characters including emojis, em dashes, hyphens, and semicolons
 "@
    "project artifacts/brand.md"                 = @"
 # BRAND GUIDELINES
@@ -57,9 +67,9 @@ Always use the existing project structure and files. Do not create new files unl
 ## COLOR PALETTE
 * **Primary Color:** `#[Hex Code]` - [Usage description, e.g., buttons, main accents]
 * **Secondary/Hover Color:** `#[Hex Code]` - [Usage description, e.g., hover states, secondary elements]
-* **Base Background:** `#[Hex Code]` - [Main canvas/body background]
+* **Base Background:** `#[Hex Code]` - [Main canvas/body background]     
 * **Card/Panel Background:** `#[Hex Code]` - [Background for elevated surfaces/containers]
-* **Primary Text:** `#[Hex Code]` - [Main body and heading text color]
+* **Primary Text:** `#[Hex Code]` - [Main body and heading text color]   
 * **Secondary/Muted Text:** `#[Hex Code]` - [Subtitles, placeholders, subtle text]
 
 ## TYPOGRAPHY
@@ -67,9 +77,9 @@ Always use the existing project structure and files. Do not create new files unl
     * **Usage:** H1, H2, H3, and major calls to action.
     * **Weights:** [e.g., Bold 700, Black 900]
 * **Body Font:** `[Font Name]` ([Hosting source])
-    * **Usage:** General paragraph text, small links, and UI elements.
+    * **Usage:** General paragraph text, small links, and UI elements.   
     * **Weights:** [e.g., Regular 400, Medium 500]
-* **Monospace Font:** `[Font Name]` ([Hosting source]) (Optional)
+* **Monospace Font:** `[Font Name]` ([Hosting source]) (Optional)        
     * **Usage:** Code snippets, technical data.
 
 ## UI / UX PRINCIPLES & COMPONENTS
@@ -98,6 +108,26 @@ Always use the existing project structure and files. Do not create new files unl
 ## DATA INTEGRITY
 [Description of how data is managed, stored, and recovered]
 "@
+   "project artifacts/firebase.md"              = @"
+---
+description: Firebase Project Setup Template
+---
+
+# Firebase Project Configuration
+
+## Project Details
+* **Project ID:** [YOUR_PROJECT_ID]
+* **Hosting Site ID:** (Optional - Defaults to Project ID if there's only one site)
+* **Region:** (Optional - Defaults to your Firebase project's default region, typically us-central1)
+
+## Agent Instructions
+When an agent sees this file:
+1. Verify Firebase CLI is installed and authenticated (`firebase login`). Prompt user if not.
+2. Verify the `firebase.json` configuration matches the intended Hosting setup.
+3. Build the application (`npm run build`).
+4. Execute `firebase deploy --only hosting` (or appropriate command).    
+5. Document the deployment status and update any relevant deployment logs.
+"@
    "project artifacts/github.md"                = @"
 ---
 description: GitHub Project Setup Template
@@ -106,25 +136,23 @@ description: GitHub Project Setup Template
 # GitHub Project Configuration
 
 ## Identity Configuration
-* **Git User Name:** [Your Git Username]
-* **Git User Email:** [Your Git Email]
+* **Git User Name:** [YOUR_USERNAME]
+* **Git User Email:** [YOUR_EMAIL]
 
 ## Repository Details
-* **Remote URL:** [Replace with GitHub URL]
-* **Visibility:** [Public/Private]
+* **Remote URL:** [YOUR_REMOTE_URL]
+* **Visibility:** [YOUR_VISIBILITY]
 * **Default Branch:** main
 
 ## Agent Instructions
 When an agent sees this file:
-1. Verify Git User Name. Prompt user if not prefilled.
-2. Verify Git User Email. Prompt user if not prefilled.
-3. Verify Remote URL. Prompt user if not prefilled.
-4. Verify Visibility (Public/Private) if the user has not declared.
-5. Initialize git (`git init`).
-6. Configure local identity using variables above.
-7. Make initial commit.
-8. Add remote origin.
-9. Push to main.
+1. Verify Remote URL is valid. Prompt user if not.
+2. Verify Visibility (Public/Private) if the user has not declared.      
+3. Initialize git (git init).
+4. Configure local identity using variables above.
+5. Make initial commit.
+6. Add remote origin.
+7. Push to main.
 "@
    "license.md"                                 = @"
 # MIT License
@@ -175,6 +203,7 @@ SOFTWARE.
   * `agent.md` - Instructions and personas for AI agents
   * `brand.md` - Generic template for managing project branding, colors, typography, logos
   * `design.md` - Architecture, core components, and data integrity specs
+  * `firebase.md` - Firebase project configuration and deployment instructions
   * `github.md` - GitHub project configuration and agent Git instructions
   * `plan.md` - Phased project roadmap and goals
   * `skills.md` - Specialized logic and AI skills instructions
@@ -202,8 +231,8 @@ SOFTWARE.
 
 ## SKILL: Firebase Deployment Routine
 * Purpose: Ensure Firebase deployment is properly configured and documented before pushing, and updated afterwards.
-* Logic: 
-  1. Check if `firebase.md` contains the necessary configuration info.
+* Logic:
+  1. Check if `firebase.md` contains the necessary configuration info.   
   2. If not, prompt the user for the lacking details.
   3. Execute the push to Firebase using the verified info.
   4. Test to ensure the deployment was successful.
@@ -211,12 +240,12 @@ SOFTWARE.
 
 ## SKILL: GitHub Push Routine
 * Purpose: Ensure GitHub push is properly configured and handles mismatches (e.g., rebasing, merging) between local directory and remote.
-* Logic: 
-  1. Check if `github.md` contains the necessary configuration info.
+* Logic:
+  1. Check if `github.md` contains the necessary configuration info.     
   2. If not, prompt the user for the lacking details.
   3. Fetch the latest remote changes and check the status of the local working directory against the remote branch.
   4. If there's a mismatch (diverged, local behind, conflicts), prompt the user in plain English with specific options (Merge, Rebase, Overwrite Web, Overwrite Local).
-  5. Execute the Git command based on the user's explicit instructions.
+  5. Execute the Git command based on the user's explicit instructions.  
   6. Push to GitHub and update `github.md` with new configuration details if applicable.
 
 ## SKILL: Supabase Management Routine
@@ -238,7 +267,7 @@ SOFTWARE.
 ## SKILL: Telegram Notifications
 * Purpose: Dispatch critical system alerts or CI/CD deployment statuses to a Telegram chat
 * Logic:
-  1. Verify the presence of `TELEGRAM_BOT_TOKEN` and `DEFAULT_CHAT_ID`
+  1. Verify the presence of `TELEGRAM_BOT_TOKEN` and `DEFAULT_CHAT_ID`   
   2. Format a concise markdown string detailing the deployment success or error state
   3. Execute an HTTP POST request to the Telegram Bot API to deliver the alert
   4. Log the notification timestamp locally if requested
@@ -471,7 +500,7 @@ When the user asks to start, stop, or manage a Node application, follow these in
    To start the app (e.g., `npm run dev` or `npm start`):
    - Run the command in the background.
    - Wait to ensure the server starts successfully and note the local URL/port.
-   - If the port is blocked, terminate the blocking process or use a different port.
+   - If the port is blocked, terminate the background command running the dev server.
 
 3. **Stopping the Dev Server**
    To stop the app:
