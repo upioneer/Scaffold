@@ -14,11 +14,11 @@ $templates = @{
 Thumbs.db
 
 # Project generated/maintained files
-/local project files/
 /TEMPLATE/
 /template/
+/project artifacts/
 "@
-   "agent.md"                                   = @"
+   "project artifacts/agent.md"                 = @"
 # AGENT INSTRUCTIONS
 Always use the existing project structure and files. Do not create new files unless explicitly asked to do so.
 
@@ -42,7 +42,7 @@ Always use the existing project structure and files. Do not create new files unl
 ## COMMANDS & SHORTCUTS
 * /example - [What this command does]
 "@
-   "brand.md"                                   = @"
+   "project artifacts/brand.md"                 = @"
 # BRAND GUIDELINES
 
 ## LOGO & IDENTITY
@@ -84,7 +84,7 @@ Always use the existing project structure and files. Do not create new files unl
 * **Brand Voice:** [e.g., Professional and authoritative, friendly and casual, technical and precise]
 * **Key Terminology:** [Specific words to use or avoid]
 "@
-   "design.md"                                  = @"
+   "project artifacts/design.md"                = @"
 # DESIGN SPECIFICATION
 
 ## ARCHITECTURE OVERVIEW
@@ -98,7 +98,7 @@ Always use the existing project structure and files. Do not create new files unl
 ## DATA INTEGRITY
 [Description of how data is managed, stored, and recovered]
 "@
-   "github.md"                                  = @"
+   "project artifacts/github.md"                = @"
 ---
 description: GitHub Project Setup Template
 ---
@@ -149,7 +149,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 "@
-   "plan.md"                                    = @"
+   "project artifacts/plan.md"                  = @"
 # PROJECT ROADMAP
 
 ## PHASE 1: THE FOUNDATION
@@ -170,7 +170,7 @@ SOFTWARE.
 * **Rapid Scaffolding:** Instantly generates essential overarching Markdown files for project management
 * **Monorepo Structure:** Creates organized directories for managing complex projects:
   * `\apps` - Contains individual applications or services for a monorepo setup. Also stores testing workflows in `\apps\walkthrough\[AppVersion]\readme.md`
-  * `\local project files` - For storing user-specific unversioned files locally
+  * `\project artifacts` - Stores the core generated markdown templates (todo, plan, skills, etc.) output by the scaffolding script.
 * **Comprehensive Templates:** Generates purpose-built files including:
   * `agent.md` - Instructions and personas for AI agents
   * `brand.md` - Generic template for managing project branding, colors, typography, logos
@@ -193,7 +193,7 @@ SOFTWARE.
 ## GETTING STARTED
 [Installation or run instructions]
 "@
-   "skills.md"                                  = @"
+   "project artifacts/skills.md"                = @"
 # SPECIALIZED AI SKILLS
 
 ## SKILL: [Skill Name]
@@ -482,7 +482,7 @@ When the user asks to start, stop, or manage a Node application, follow these in
    - **Build**: Run `npm run build` to compile the project and verify success.
    - **Test & Lint**: Run `npm run test` or `npm run lint` to enforce quality. Report any errors to the user.
 "@
-   "testing.md"                                 = @"
+   "project artifacts/testing.md"               = @"
 # TESTING SPECIFICATION
 
 ## CORE PHILOSOPHY
@@ -493,7 +493,7 @@ When the user asks to start, stop, or manage a Node application, follow these in
 * Condition: [Trigger condition]
 * Expected: [Expected outcome]
 "@
-   "todo.md"                                    = @"
+   "project artifacts/todo.md"                  = @"
 # PROJECT BACKLOG (TODO)
 
 ## PRIORITY: ARCHITECTURE

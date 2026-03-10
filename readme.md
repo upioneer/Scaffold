@@ -7,7 +7,7 @@ SCAFFOLD is a lightweight PowerShell script (`scaffold.ps1`) designed to quickly
 * **Rapid Scaffolding:** Instantly generates essential overarching Markdown files for project management
 * **Monorepo Structure:** Creates organized directories for managing complex projects:
   * `\apps` - Contains individual applications or services for a monorepo setup. Also stores testing workflows in `\apps\walkthrough\[AppVersion]\readme.md`
-  * `\local project files` - For storing user-specific unversioned files locally
+  * `\project artifacts` - Stores the core generated markdown templates (todo, plan, skills, etc.) output by the scaffolding script.
 * **Comprehensive Templates:** Generates purpose-built files including:
   * `agent.md` - Instructions and personas for AI agents
   * `brand.md` - Generic template for managing project branding, colors, typography, logos
