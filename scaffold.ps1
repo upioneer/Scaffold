@@ -14,10 +14,26 @@ $templates = @{
 Thumbs.db
 
 # Project generated/maintained files
+/apps/
+/local project files/
 /TEMPLATE/
 /template/
 /project artifacts/
 "@
+   "apps/docker/.gitkeep"                       = ""
+   "apps/mobile/.gitkeep"                       = ""
+   "apps/walkthrough/.gitkeep"                  = ""
+   "apps/walkthrough/readme.md"                 = @"
+# WALKTHROUGH DOCUMENTATION
+
+## VERSION: v1.0.0
+### OVERVIEW
+Summary of changes in this version.
+
+### TESTING WORKFLOWS
+[Detailed testing steps and results]
+"@
+   "apps/website/.gitkeep"                      = ""
    "project artifacts/agent.md"                 = @"
 # AGENT OPERATING PARAMETERS
 
@@ -486,7 +502,7 @@ When the user asks to set up Telegram notifications, deploy hooks, or chat alert
    ".agent/skills/node_dev/SKILL.md"            = @"
 ---
 name: node_dev
-description: Specialized skill for managing Node.js development environments, including starting/stopping dev servers, building, testing, and linting.
+description: Specialized skill for managing Node.js development environments, including starting/stopping dev servers, building, testing, and lints.
 ---
 
 # Node Development Skill
