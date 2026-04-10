@@ -21,6 +21,7 @@ SCAFFOLD is a lightweight PowerShell script (`scaffold.ps1`) designed to quickly
     * `Resend Email Services`
     * `Telegram Notifications`
     * `Node Development`
+    * `Marp Presentations`
   * `testing.md` - Testing philosophy and test cases
   * `todo.md` - Project backlog and priorities
   * Standard `readme.md` and `license.md`
