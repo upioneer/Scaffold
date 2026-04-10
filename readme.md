@@ -15,14 +15,14 @@ SCAFFOLD is a lightweight PowerShell script (`scaffold.ps1`) designed to quickly
   * `github.md` - GitHub project configuration and agent Git instructions
   * `plan.md` - Phased project roadmap and goals
   * `skills.md` - Specialized logic and AI skills instructions
+    * `Excalidraw Diagrams`
     * `Firebase Deployment Routine`
     * `GitHub Push Routine`
-    * `Supabase Management Routine`
-    * `Resend Email Services`
-    * `Telegram Notifications`
-    * `Node Development`
     * `Marp Presentations`
-    * `Excalidraw Diagrams`
+    * `Node Development`
+    * `Resend Email Services`
+    * `Supabase Management Routine`
+    * `Telegram Notifications`
   * `testing.md` - Testing philosophy and test cases
   * `todo.md` - Project backlog and priorities
   * Standard `readme.md` and `license.md`
