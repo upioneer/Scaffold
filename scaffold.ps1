@@ -143,6 +143,7 @@ while ($running) {
         foreach ($o in $options) { if (-not $o.Selected) { $all = $false } }
         $newState = -not $all
         foreach ($o in $options) { $o.Selected = $newState }
+        Clear-Host
     } elseif ($key.VirtualKeyCode -eq 13) {
         $running = $false
     }
