@@ -1,5 +1,3 @@
-*.md
-
 # Allow specific mandatory files
 !readme.md
 !license.md
@@ -10,7 +8,5 @@ Thumbs.db
 
 # Project generated/maintained files
 /apps/
-/local project files/
 /TEMPLATE/
-/template/
 /project artifacts/
