@@ -55,11 +55,10 @@ Clear-Host
 while ($running) {
     [Console]::SetCursorPosition(0,0)
     
-    Write-Host "$bgHex$fgHex  ____   ____    _    ____  ____  ___  _     ____  "
-    Write-Host "$bgHex$fgHex / ___| / ___|  / \  |  _ \|  _ \|_ _|| |   |  _ \ "
-    Write-Host "$bgHex$fgHex \___ \| |     / _ \ | |_) | |_) || | | |   | | | |"
-    Write-Host "$bgHex$fgHex  ___) | |___ / ___ \|  __/|  __/ | | | |___| |_| |"
-    Write-Host "$bgHex$fgHex |____/ \____/_/   \_\_|   |_|   |___||_____|____/ "
+    Write-Host "$bgHex$fgHex  ___  ___   _   ___ ___ ___  _    ___  "
+    Write-Host "$bgHex$fgHex / __|/ __| /_\ | __| __/ _ \| |  |   \ "
+    Write-Host "$bgHex$fgHex \__ \ (__ / _ \| _|| _| (_) | |__| |) |"
+    Write-Host "$bgHex$fgHex |___/\___/_/ \_\_| |_| \___/|____|___/ "
     Write-Host "$reset$bgHex"
     Write-Host "$bgHex"
     Write-Host "$bgHex  Use Up/Down to navigate, Space to toggle, 'A' for all/none, Enter to execute."
