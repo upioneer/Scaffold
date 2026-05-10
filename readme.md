@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This repository is no longer maintained.**
+> All development efforts have moved to the new **Code Scaffold** repository.
+> Please visit [upioneer/code-scaffold](https://github.com/upioneer/code-scaffold) for the latest updates and features.
+
 # SCAFFOLD - Project Template Generator
 
 ## OVERVIEW
