@@ -13,6 +13,10 @@ description: GitHub Project Setup Template
 * **Visibility:** Public
 * **Default Branch:** main
 
+## Current Status
+* **Maintained:** No (All efforts moved to [Code Scaffold](https://github.com/upioneer/code-scaffold))
+* **Last Pushed:** 2026-05-09 (Deprecation notice added)
+
 ## Agent Instructions
 When an agent sees this file:
 1. Verify Remote URL is valid. Prompt user if not.
