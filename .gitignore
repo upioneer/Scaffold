@@ -10,3 +10,7 @@ Thumbs.db
 /apps/
 /TEMPLATE/
 /project artifacts/
+/local project files/
+/scratch/
+/scaffold.ps1
+/.agent/
